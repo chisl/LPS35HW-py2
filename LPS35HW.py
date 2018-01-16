@@ -6,7 +6,7 @@ __author__     = "ChISL"
 __copyright__  = "TBD"
 __credits__    = ["STMicroelectronics"]
 __license__    = "TBD"
-__version__    = "0.1"
+__version__    = "Version 0.1"
 __maintainer__ = "https://chisl.io"
 __email__      = "info@chisl.io"
 __status__     = "Test"
@@ -21,7 +21,7 @@ from LPS35HW_constants import *
 # name:        LPS35HW
 # description: 260-1260 hPa absolute digital output barometer with water resistant package
 # manuf:       STMicroelectronics
-# version:     0.1
+# version:     Version 0.1
 # url:         http://www.st.com/resource/en/datasheet/lps35hw.pdf
 # date:        2018-01-04
 
@@ -83,8 +83,8 @@ class LPS35HW_Base:
 	# Enable interrupt generation on differential pressure high event. 
 	# Register THS_P
 	# 8.2-3 
-	#           Threshold value for pressure interrupt generation.
-	#           This register contains the high part of threshold value for pressure interrupt generation. 
+	#         Threshold value for pressure interrupt generation.
+	#         This register contains the threshold value for pressure interrupt generation. 
 	
 	
 	def setTHS_P(self, val):
@@ -270,7 +270,7 @@ class LPS35HW_Base:
 	# FIFO watermark level selection. 
 	# Register REF_P
 	# 8.9
-	#       Reference pressure (LSB data) 
+	#       Reference pressure
 	#       The value is expressed as 2’s complement.
 	#       The reference pressure value is used when AUTOZERO or AUTORIFP function is
 	#       enabled(refer to the Section 10.7: "CTRL_REG3 (12h)" register) and for the Autozero
@@ -424,11 +424,11 @@ class LPS35HW_Base:
 	
 	def setPRESS_OUT(self, val):
 		"""Set register PRESS_OUT"""
-		self.write(REG.PRESS_OUT, val, 8)
+		self.write(REG.PRESS_OUT, val, 24)
 	
 	def getPRESS_OUT(self):
 		"""Get register PRESS_OUT"""
-		return self.read(REG.PRESS_OUT, 8)
+		return self.read(REG.PRESS_OUT, 24)
 	
 	# Bits PRESS_OUT
 	# Register TEMP_OUT
@@ -441,11 +441,11 @@ class LPS35HW_Base:
 	
 	def setTEMP_OUT(self, val):
 		"""Set register TEMP_OUT"""
-		self.write(REG.TEMP_OUT, val, 8)
+		self.write(REG.TEMP_OUT, val, 24)
 	
 	def getTEMP_OUT(self):
 		"""Get register TEMP_OUT"""
-		return self.read(REG.TEMP_OUT, 8)
+		return self.read(REG.TEMP_OUT, 24)
 	
 	# Bits TEMP_OUT
 	# Register LPFP_RES
